@@ -27,12 +27,12 @@
 }
 
 @utility typo-title {
-  font-size: 24pt;
+  font-size: 2rem;
   font-weight: 700;
 }
 
 @utility typo-content {
-  font-size: 20pt;
+  font-size: 1.666rem;
   font-weight: 400;
 }
 
