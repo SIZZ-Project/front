@@ -3,6 +3,39 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  /* https://www.figma.com/design/vFrOccFrsTHGNQpq3iIyMO/SIZZ_Design?node-id=2-2291&t=2EjgMyL0x6WzL1w0-0 */
+  --color-primary-10: #c3d7ff;
+  --color-primary-30: #3d3dbd;
+  --color-primary-60: #0f0f43;
+  --color-primary-90: #000090;
+
+  --color-coolGray-10: #f2f4f8;
+  --color-coolGray-20: #dde1e6;
+  --color-coolGray-30: #c1c7cd;
+  --color-coolGray-40: #a2a9b0;
+  --color-coolGray-50: #878d96;
+  --color-coolGray-60: #697077;
+  --color-coolGray-70: #4d5358;
+  --color-coolGray-80: #343a3f;
+  --color-coolGray-90: #21272a;
+  --color-coolGray-100: #121619;
+
+  --color-error: #ff454f;
+  --color-success: #70ff45;
+  --color-warning: #ffe345;
+}
+
+@utility typo-title {
+  font-size: 24pt;
+  font-weight: 700;
+}
+
+@utility typo-content {
+  font-size: 20pt;
+  font-weight: 400;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
