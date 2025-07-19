@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SIZZ_logo from "../../../../../public/image/SiZZ_logo.svg";
+import SIZZ_logo from "@/../public/image/SiZZ_logo.svg";
 
 export default function LogoTitle() {
     return (

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import '../../styles/globals.css';
+import '@/styles/globals.css';
 import TopSection from "@/app/(home)/components/home-top/TopSection";
 
 export default function NavBar() {
