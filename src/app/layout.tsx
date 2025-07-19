@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
-import NavBar from "@/components/layout/NavBar";
-import "../styles/globals.css"; // tailwind 포함된 글로벌 CSS
+import "../styles/globals.css";
+import NavBar from "@/components/NavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,12 +14,12 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html lang="ko" suppressHydrationWarning>
-        <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <NavBar />
-            {children}
-        </ThemeProvider>
-        </body>
+            <body className={inter.className}>
+                <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+                    <NavBar />
+                    {children}
+                </ThemeProvider>
+            </body>
         </html>
     );
 }

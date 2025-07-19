@@ -4,11 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { Switch } from "@/components/ui/switch";
+import { Switch } from "@/shared/ui/switch/switch";
 import { User } from "lucide-react";
-import HomeSearchBar from "@/components/common/Home-SearchBar";
-import '../../styles/globals.css';
-import SIZZ_logo from '../../public/image/SiZZ_logo.svg'
+import HomeSearchBar from "@/widgets/navbar/ui/Home-SearchBar";
+import '../../../styles/globals.css';
+import SIZZ_logo from '../../../../public/image/SiZZ_logo.svg'
 
 export default function NavBar() {
     const { theme, setTheme } = useTheme();
