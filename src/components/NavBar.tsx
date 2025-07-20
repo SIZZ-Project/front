@@ -6,7 +6,7 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Switch } from "@/shared/ui/switch/switch";
 import { User } from "lucide-react";
-import SIZZ_logo from '@/public/image/SiZZ_logo.svg';
+import SIZZ_logo from '@/../public/image/SiZZ_logo.svg';
 import HomeSearchBar from "@/components/Home-SearchBar";
 import '@/styles/globals.css';
 
