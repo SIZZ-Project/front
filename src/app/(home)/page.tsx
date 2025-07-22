@@ -5,7 +5,7 @@ import BottomSection from "./components/home-bottom/BottomSection";
 
 export default function Page() {
   return (
-    <main className="max-w-[1920px] mx-auto min-w-[1440px]">
+    <main className="mx-auto">
       <TopSection />
       <BottomSection />
     </main>
