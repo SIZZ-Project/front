@@ -33,9 +33,9 @@ export default function NewsCard({
   className?: string;
 }) {
   const status = {
-    정치: "text-[#FF454F]",
-    진보: "text-[#FFE345]",
-    중립: "text-[#70FF45]",
+    정치: "text-error",
+    중립: "text-warning",
+    진보: "text-success",
   };
   return (
     <div
@@ -62,7 +62,7 @@ export default function NewsCard({
         ))}
       </div>
       <div className="w-full h-[1px] bg-[#a2a9b0]"></div>
-      <div className="w-full h-[120px] text-coolGray-30 text-[20px] font-regular leading-[200%] space-y-[12px]">
+      <div className="w-full h-[120px] text-[18px] font-regular leading-[200%] space-y-[12px] text-coolGray-30">
         {content}
       </div>
 
