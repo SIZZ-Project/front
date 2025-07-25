@@ -4,9 +4,9 @@ import WhySIZZCard from "@/app/(home)/components/home-top/WhySIZZCard";
 
 export default function TopSection() {
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-center gap-6 p-4 h-[979px]">
-      <ImagePanel />
+    <div className="relative flex gap-[38.0625rem] justify-center h-[61.1875rem] overflow-x-hidden">
       <LogoTitle />
+      <ImagePanel />
       <WhySIZZCard />
     </div>
   );
