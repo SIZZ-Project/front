@@ -1,5 +1,4 @@
 import News from "@/components/main/News";
-import { useTheme } from "next-themes";
 import Image from "next/image";
 
 export default function BottomSection() {
