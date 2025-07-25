@@ -1,12 +1,15 @@
 import { ReactNode } from "react";
-import "./globals.css";
 import MyPageMenu from "@/app/myProfile/components/myPageMenu";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <div>
-            <MyPageMenu />
-            {children}
+            <div className="absolute top-10 left-10">
+                <MyPageMenu  />
+            </div>
+            <div className="absolute top-60 left-90">
+                {children}
+            </div>
         </div>
     );
 }
