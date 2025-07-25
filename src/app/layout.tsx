@@ -6,13 +6,9 @@ import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata = {
-  title: "SIZZ 뉴스",
-  description: "공정하고 신뢰할 수 있는 뉴스 플랫폼",
-  title: "SIZZ 뉴스",
-  description: "공정하고 신뢰할 수 있는 뉴스 플랫폼",
+const inter = Inter({ subsets: ["latin"] });export const metadata = {
+    title: "SIZZ 뉴스",
+    description: "공정하고 신뢰할 수 있는 뉴스 플랫폼",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
