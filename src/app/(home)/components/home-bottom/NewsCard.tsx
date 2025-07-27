@@ -39,7 +39,7 @@ export default function NewsCard({
   };
   return (
     <div
-      className={`aspect-[748/470] w-full rounded-xl opacity-80 backdrop-blur-[20px] mx-auto p-6 flex flex-col gap-6 ${className}`}
+      className={`rounded-xl opacity-80 backdrop-blur-[20px] mx-auto p-6 flex flex-col gap-6 ${className}`}
       style={{
         background:
           "linear-gradient(104deg, rgba(255, 255, 255, 0.12) 0.37%, rgba(255, 255, 255, 0.20) 99.63%), rgba(0, 0, 0, 0.80)",
