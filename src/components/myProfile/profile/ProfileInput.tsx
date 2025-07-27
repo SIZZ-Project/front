@@ -8,13 +8,13 @@ type ProfileInputProps = {
 };
 
 export default function ProfileInput({
-    label,
-    value,
-    onChange,
-    type = "text",
-    options,
-    readOnly = false
-}: ProfileInputProps) {
+                                         label,
+                                         value,
+                                         onChange,
+                                         type = "text",
+                                         options,
+                                         readOnly = false
+                                     }: ProfileInputProps) {
     return (
         <div className="relative w-full">
             <span className="absolute left-3 top-1/2 -translate-y-1/2 text-white text-sm pointer-events-none">

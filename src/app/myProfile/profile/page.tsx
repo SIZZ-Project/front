@@ -1,7 +1,7 @@
 "use client"
 import logo from "@/../public/image/SiZZ_logo.svg";
 import Image from "next/image";
-import ProfileForm from "@/app/myProfile/components/profile/profileForm";
+import ProfileForm from "@/app/myProfile/profile/profileForm";
 
 export default function MyProfile() {
 
