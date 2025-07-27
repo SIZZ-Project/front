@@ -1,5 +1,6 @@
 import React from "react";
 import NewsCard from "./NewsCard";
+import { twMerge } from "tailwind-merge";
 
 export default function News() {
   const hotNews = [
@@ -26,7 +27,10 @@ export default function News() {
             <NewsCard
               key={idx}
               category={item.category as any}
-              className={isScroll ? "md:w-[49%] flex-shrink-0" : "w-[50%]"}
+              className={twMerge(
+                "aspect-[748/470] w-full max-h-[470px]",
+                isScroll ? "md:w-[49%] flex-shrink-0" : "w-[50%]"
+              )}
             />
           ))}
         </div>
