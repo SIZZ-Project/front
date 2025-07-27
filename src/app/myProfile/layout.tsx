@@ -4,7 +4,7 @@ import MyPageMenu from "@/app/myProfile/components/myPageMenu";
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <div>
-            <div className="absolute top-10 left-10">
+            <div className="absolute top-50 left-10">
                 <MyPageMenu  />
             </div>
             <div className="absolute top-60 left-90">
