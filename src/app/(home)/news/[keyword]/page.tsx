@@ -26,7 +26,7 @@ export default async function News({
           />
         </div>
       </div>
-      <NewsList keyword={keyword} />
+      <NewsList keyword={decodeURIComponent(keyword)} />
     </main>
   );
 }
