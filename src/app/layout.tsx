@@ -3,17 +3,22 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
-import NavBar from "@/components/NavBar";
 import ClientLayout from "./layout.client";
+import { Metadata } from "next";
+import NavBar from "@/components/NavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "SIZZ 뉴스",
   description: "공정하고 신뢰할 수 있는 뉴스 플랫폼",
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
     <html lang="ko" suppressHydrationWarning>
       <body className={`${inter.className} min-h-screen flex flex-col`}>

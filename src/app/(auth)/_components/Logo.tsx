@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function Header() {
+export default function Logo() {
   return (
     <header className="flex flex-col gap-1 items-center">
       <div className="flex items-center justify-center gap-[1.2031rem] h-[101px]">
