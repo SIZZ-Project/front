@@ -62,7 +62,7 @@ export default function NewsCard({
         ))}
       </div>
       <div className="w-full h-[1px] bg-[#a2a9b0]"></div>
-      <div className="w-full h-[120px] text-[18px] font-regular leading-[200%] space-y-[12px] text-coolGray-30">
+      <div className="w-full h-[120px] font-regular leading-[200%] space-y-[12px] text-coolGray-30">
         {content}
       </div>
 

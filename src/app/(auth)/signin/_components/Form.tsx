@@ -49,12 +49,14 @@ export default function Form() {
       <Link className="text-2xl text-coolGray-10" href="/">
         다른 계정으로 로그인하기
       </Link>
-      <Image
-        src="/icons/icon-google.svg"
-        width={50}
-        height={50}
-        alt="구글 로그인 아이콘"
-      />
+      <button type="button" onClick={() => {}} className="cursor-pointer">
+        <Image
+          src="/icons/icon-google.svg"
+          width={50}
+          height={50}
+          alt="구글 로그인 아이콘"
+        />
+      </button>
     </div>
   );
 

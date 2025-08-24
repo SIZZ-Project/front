@@ -1,18 +1,16 @@
-"use client";
-
 import { Search } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useSearch } from "@/contexts/SearchContext";
 
 export default function HomeSearchBar() {
   const navigate = useRouter();
-  const [searchQuery, setSearchQuery] = useState("");
+  const { searchQuery, setSearchQuery } = useSearch();
+
   const handleSearch = () => {
     if (searchQuery.trim()) {
       const encodedQuery = encodeURIComponent(searchQuery.trim());
       navigate.push(`/news/${encodedQuery}`);
     }
-    setSearchQuery("");
   };
 
   return (

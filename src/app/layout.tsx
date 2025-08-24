@@ -6,6 +6,7 @@ import "./globals.css";
 import ClientLayout from "./layout.client";
 import { Metadata } from "next";
 import NavBar from "@/components/NavBar";
+import { SearchProvider } from "@/contexts/SearchContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,10 +24,12 @@ export default async function RootLayout({
     <html lang="ko" suppressHydrationWarning>
       <body className={`${inter.className} min-h-screen flex flex-col`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <NavBar />
-          <ClientLayout>
-            <main className="flex-grow">{children}</main>
-          </ClientLayout>
+          <SearchProvider>
+            <NavBar />
+            <ClientLayout>
+              <main className="flex-grow">{children}</main>
+            </ClientLayout>
+          </SearchProvider>
         </ThemeProvider>
       </body>
     </html>
