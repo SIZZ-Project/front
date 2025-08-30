@@ -1,26 +1,10 @@
-"use client";
-
+import NewsApiClient from "@/api/NewsApiClient";
 import News from "@/app/(home)/components/home-bottom/News";
-import { NewsResponseDto } from "@/type";
+
 import Image from "next/image";
-import { useState } from "react";
-import { useEffect } from "react";
 
-export default function BottomSection() {
-  const [news, setNews] = useState<NewsResponseDto[]>([]);
-
-  useEffect(() => {
-    const fetchNews = async () => {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/news/all`
-      );
-      const data = await response.json();
-      setNews(data);
-    };
-    fetchNews();
-  }, []);
-
-  console.log(news);
+export default async function BottomSection() {
+  const news = await NewsApiClient.getInstance().getNewsAll();
 
   return (
     <div className="pt-[50px] relative px-[136px] overflow-y-hidden">
