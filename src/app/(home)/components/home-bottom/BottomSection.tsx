@@ -8,7 +8,7 @@ export default async function BottomSection() {
 
   return (
     <div className="pt-[50px] relative px-[136px] overflow-y-hidden">
-      <News />
+      <News news={news} />
       <div className="absolute top-[536px] left-[-670px] w-full max-w-[1486px] aspect-[1486/1321] mx-auto z-[-1]">
         <Image
           src="/image/Z_image.png"

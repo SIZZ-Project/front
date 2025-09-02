@@ -1,15 +1,14 @@
 import React from "react";
 import NewsCard from "./NewsCard";
 import { twMerge } from "tailwind-merge";
+import { PageSearchNewsResponseDto } from "@/type";
 
-export default function News() {
-  const hotNews = [
-    { category: "정치" },
-    { category: "중립" },
-    { category: "진보" },
-  ];
+interface NewsProps {
+  news: PageSearchNewsResponseDto;
+}
 
-  const isScroll = hotNews.length >= 3;
+export default function News({ news }: NewsProps) {
+  const isScroll = news.content.length >= 3;
 
   return (
     <div className="flex flex-col gap-[200px] mx-auto bg-[rgba(18,22,25,0.25)] p-16">
@@ -23,14 +22,17 @@ export default function News() {
             isScroll ? "overflow-x-auto flex-nowrap" : "flex-wrap"
           }`}
         >
-          {hotNews.map((item, idx) => (
+          {news.content.map((item) => (
             <NewsCard
-              key={idx}
-              category={item.category as any}
+              key={item.articleId}
+              category={"정치"}
               className={twMerge(
                 "aspect-[748/470] w-full max-h-[470px]",
                 isScroll ? "md:w-[49%] flex-shrink-0" : "w-[50%]"
               )}
+              title={item.title}
+              content={item.description}
+              date={item.pubDate}
             />
           ))}
         </div>
