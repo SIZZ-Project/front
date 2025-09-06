@@ -32,7 +32,17 @@ export default function News({ news }: NewsProps) {
               )}
               title={item.title}
               content={item.description}
-              date={item.pubDate}
+              date={item.pubDate.split("T")[0]}
+              newsData={{
+                articleId: item.articleId,
+                title: item.title,
+                description: item.description,
+                link: item.link,
+                category: ["정치"], // 기본값으로 설정
+                pubDate: item.pubDate,
+                sourceName: item.sourceName,
+                viewCount: 0, // 기본값으로 설정
+              }}
             />
           ))}
         </div>
