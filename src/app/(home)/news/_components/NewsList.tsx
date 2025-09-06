@@ -1,3 +1,4 @@
+import NewsApiClient from "@/api/NewsApiClient";
 import NewsCard from "../../components/home-bottom/NewsCard";
 
 const hotNews = [
@@ -6,7 +7,12 @@ const hotNews = [
   { category: "진보" },
 ];
 
-export default function NewsList({ keyword }: { keyword: string }) {
+export default async function NewsList({ keyword }: { keyword: string }) {
+  const news = await NewsApiClient.getInstance().getSearchNewsView(keyword, {
+    page: 0,
+    size: 10,
+  });
+
   return (
     <div className="absolute w-full top-[490px] flex flex-col gap-[200px] mx-auto bg-[rgba(18,22,25,0.25)] p-16">
       <div>
@@ -15,7 +21,7 @@ export default function NewsList({ keyword }: { keyword: string }) {
         </div>
         <div className="bg-[#343A3F] h-[0.1875rem] w-full" />
         <div className={`flex flex-col gap-6 mt-[4rem]`}>
-          {keyword === "notfound" ? (
+          {news.content.length === 0 ? (
             <div
               style={{
                 background:
@@ -27,11 +33,24 @@ export default function NewsList({ keyword }: { keyword: string }) {
             </div>
           ) : (
             <>
-              {hotNews.map((item, idx) => (
+              {news.content.map((item, idx) => (
                 <NewsCard
                   key={idx}
-                  category={item.category as any}
+                  category={"정치"}
                   className={`h-[470px] w-full max-h-[470px]`}
+                  title={item.title}
+                  content={item.description}
+                  date={item.pubDate.split("T")[0]}
+                  newsData={{
+                    articleId: item.articleId,
+                    title: item.title,
+                    description: item.description,
+                    link: item.link,
+                    category: ["정치"],
+                    pubDate: item.pubDate,
+                    sourceName: item.sourceName,
+                    viewCount: 0,
+                  }}
                 />
               ))}
             </>
