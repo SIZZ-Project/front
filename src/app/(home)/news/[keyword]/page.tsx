@@ -8,9 +8,9 @@ import Image from "next/image";
 export default async function News({
   params,
 }: {
-  params: { keyword: string };
+  params: Promise<{ keyword: string }>;
 }) {
-  const { keyword } = params;
+  const { keyword } = await params;
 
   return (
     <main className="relative mx-auto">
