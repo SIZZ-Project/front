@@ -1,5 +1,13 @@
-import { AuthRequest, CommentRequest, CommentResponse } from "@/type";
+import {
+  AuthRequest,
+  CommentRequest,
+  CommentResponse,
+  LoginRequest,
+  LoginResponse,
+  SignupResponse,
+} from "@/type";
 import BaseApiClient, { Tokens } from "./BaseApiClient";
+import { setTokens } from "@/libs/auth";
 
 class AuthApiClient extends BaseApiClient {
   private static instance: AuthApiClient;
@@ -47,25 +55,33 @@ class AuthApiClient extends BaseApiClient {
   };
 
   // 회원가입
-  public postAuthSignup = async (data: AuthRequest): Promise<{}> => {
+  public postAuthSignup = async (
+    data: AuthRequest
+  ): Promise<SignupResponse> => {
     const response = await this.axios.request({
       method: "POST",
       url: `/auth/signup`,
       data,
     });
-    return response.data;
+    return response.data as SignupResponse;
   };
 
   // 로그인
-  public postAuthLogin = async (
-    data: Omit<AuthRequest, "nickname">
-  ): Promise<{}> => {
+  public postAuthLogin = async (data: LoginRequest): Promise<LoginResponse> => {
     const response = await this.axios.request({
       method: "POST",
       url: `/auth/login`,
       data,
     });
-    return response.data;
+
+    const loginData = response.data as LoginResponse;
+
+    // 토큰을 쿠키에 저장 (data 필드가 JWT 토큰)
+    setTokens({
+      accessToken: loginData.data,
+    });
+
+    return loginData;
   };
 }
 

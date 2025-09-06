@@ -18,6 +18,23 @@ export interface AuthRequest {
   nickname: string;
 }
 
+export interface LoginRequest {
+  email: string;
+  password: string;
+}
+
+export interface LoginResponse {
+  success: boolean;
+  message: string;
+  data: string; // JWT 토큰
+}
+
+export interface SignupResponse {
+  success: boolean;
+  message: string;
+  data?: any;
+}
+
 export interface ApiResponse<T> {
   success?: boolean;
   message?: string;
