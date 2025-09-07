@@ -15,12 +15,11 @@ class BookMarksApiClient extends BaseApiClient {
     return this.instance;
   }
 
-  // TODO: Response 타입을 정의하고 사용하기
-  // 현재는 임시로 빈 객체를 반환
+  // 북마크 상태 조회
   public getBookMark = async (params: {
     articleId: string;
     userId: string;
-  }): Promise<{}> => {
+  }): Promise<BookmarksResponse> => {
     const response = await this.axios.request({
       method: "GET",
       url: `/news/news/${params.articleId}/bookmark`,

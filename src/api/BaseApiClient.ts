@@ -69,9 +69,7 @@ class BaseApiClient {
       return this.tokens.accessToken;
     }
     if (typeof window !== "undefined") {
-      return Cookies.get(
-        process.env.NEXT_PUBLIC_ACCESS_TOKEN_KEY ?? "ACCESS_TOKEN"
-      );
+      return Cookies.get("ACCESS_TOKEN");
     }
   }
 
@@ -81,9 +79,7 @@ class BaseApiClient {
       return this.tokens.refreshToken;
     }
     if (typeof window !== "undefined") {
-      return Cookies.get(
-        process.env.NEXT_PUBLIC_REFRESH_TOKEN_KEY ?? "REFRESH_TOKEN"
-      );
+      return Cookies.get("REFRESH_TOKEN");
     }
   }
 

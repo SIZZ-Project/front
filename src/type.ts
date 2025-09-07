@@ -42,7 +42,6 @@ export interface ApiResponse<T> {
 }
 
 export interface BookmarksRequest {
-  userId: number;
   articleId: number;
   bookmarked?: boolean;
 }
@@ -52,6 +51,19 @@ export interface BookmarksResponse {
   userId: number;
   articleId: number;
   bookmarked?: boolean;
+}
+
+export interface LikeRequest {
+  articleId: string;
+  userId?: string;
+  liked?: boolean;
+}
+
+export interface LikeResponse {
+  id: number;
+  articleId: string;
+  userId: string;
+  liked: boolean;
 }
 
 export interface Pageable {
@@ -90,6 +102,7 @@ export interface SearchNewsResponseDto {
   link: string;
   pubDate: string; // ISO 8601 date string
   sourceName: string;
+  category: ["정치" | "중립" | "진보"];
 }
 
 export interface SortObject {

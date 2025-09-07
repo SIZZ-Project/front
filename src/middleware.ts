@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { isTokenValid } from "./libs/auth";
+import { isTokenValid } from "@/libs/auth";
 
 // 인증이 필요한 경로들
 const protectedRoutes = [

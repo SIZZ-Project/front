@@ -12,27 +12,31 @@ interface TokenPayload {
 }
 
 export function setTokens(tokens: Tokens) {
-  Cookies.set(
-    process.env.NEXT_PUBLIC_ACCESS_TOKEN_KEY ?? "ACCESS_TOKEN",
-    tokens.accessToken
-  );
+  console.log("토큰 저장 시도:", tokens);
+  console.log("액세스 토큰:", tokens.accessToken);
+
+  if (!tokens.accessToken) {
+    console.error("액세스 토큰이 없습니다!");
+    return;
+  }
+
+  Cookies.set("ACCESS_TOKEN", tokens.accessToken);
+  console.log("ACCESS_TOKEN 쿠키 저장 완료");
+
   if (tokens.refreshToken) {
-    Cookies.set(
-      process.env.NEXT_PUBLIC_REFRESH_TOKEN_KEY ?? "REFRESH_TOKEN",
-      tokens.refreshToken
-    );
+    Cookies.set("REFRESH_TOKEN", tokens.refreshToken);
+    console.log("REFRESH_TOKEN 쿠키 저장 완료");
   }
 }
 export function clearTokens() {
-  Cookies.remove(process.env.NEXT_PUBLIC_ACCESS_TOKEN_KEY ?? "ACCESS_TOKEN");
-  Cookies.remove(process.env.NEXT_PUBLIC_REFRESH_TOKEN_KEY ?? "REFRESH_TOKEN");
+  Cookies.remove("ACCESS_TOKEN");
+  Cookies.remove("REFRESH_TOKEN");
 }
 
 export function getToken(): string | null {
-  return (
-    Cookies.get(process.env.NEXT_PUBLIC_ACCESS_TOKEN_KEY ?? "ACCESS_TOKEN") ||
-    null
-  );
+  const token = Cookies.get("ACCESS_TOKEN");
+  console.log("쿠키에서 토큰 읽기:", token);
+  return token || null;
 }
 
 export function isTokenValid(token?: string): boolean {
@@ -66,4 +70,9 @@ export function getTokenPayload(token?: string): TokenPayload | null {
     console.error("토큰 파싱 실패:", error);
     return null;
   }
+}
+
+export function getUserId(): string | null {
+  const payload = getTokenPayload();
+  return payload?.sub || null;
 }

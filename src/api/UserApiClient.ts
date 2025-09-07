@@ -76,6 +76,16 @@ class AuthApiClient extends BaseApiClient {
 
     const loginData = response.data as LoginResponse;
 
+    // 디버깅: API 응답 확인
+    console.log("로그인 API 응답:", loginData);
+    console.log("토큰 데이터:", loginData.data);
+
+    // 토큰이 존재하는지 확인
+    if (!loginData.data) {
+      console.error("토큰이 없습니다:", loginData);
+      throw new Error("로그인 응답에 토큰이 없습니다.");
+    }
+
     // 토큰을 쿠키에 저장 (data 필드가 JWT 토큰)
     setTokens({
       accessToken: loginData.data,

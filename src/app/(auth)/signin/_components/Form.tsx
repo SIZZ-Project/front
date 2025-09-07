@@ -7,6 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import AuthApiClient from "@/api/UserApiClient";
 import { LoginRequest } from "@/type";
+import toast from "react-hot-toast";
 
 type FormValues = {
   email: string;
@@ -58,8 +59,14 @@ export default function Form() {
       const authApi = AuthApiClient.getInstance();
       const response = await authApi.postAuthLogin(loginData);
 
+      console.log("로그인 폼에서 응답 확인:", response);
+
+      // 로그인 성공 토스트 메시지
+      toast.success("로그인에 성공했습니다!");
+
       // 로그인 성공 시 리다이렉트 처리
       const redirectUrl = searchParams.get("redirect") || "/";
+      console.log("리다이렉트 URL:", redirectUrl);
       router.push(redirectUrl);
     } catch (error: any) {
       console.error("로그인 실패:", error);
@@ -108,7 +115,7 @@ export default function Form() {
 
   return (
     <form
-      onSubmit={handleSubmit((data) => console.log(data))}
+      onSubmit={handleSubmit(handleNextOrSubmit)}
       className="max-w-[37.5rem] w-full mx-auto flex flex-col gap-[4rem]"
     >
       {/* 에러 메시지 */}
@@ -121,14 +128,35 @@ export default function Form() {
       {/* 입력 필드 */}
       <div className="w-full mx-auto flex flex-col gap-1">
         <input
-          type={isID ? "text" : "password"}
+          type={isID ? "email" : "password"}
           {...register(isID ? "email" : "password", {
-            required: true,
+            required: isID
+              ? "이메일을 입력해주세요"
+              : "비밀번호를 입력해주세요",
+            pattern: isID
+              ? {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "올바른 이메일 형식을 입력해주세요",
+                }
+              : undefined,
+            minLength: isID
+              ? undefined
+              : {
+                  value: 6,
+                  message: "비밀번호는 최소 6자 이상이어야 합니다",
+                },
           })}
           className="bg-transparent border border-coolGray-10 rounded-xl w-full h-[6.25rem] text-4xl pl-6"
-          placeholder={isID ? "이메일 또는 휴대전화" : "비밀번호 입력"}
+          placeholder={
+            isID ? "이메일을 입력해주세요" : "비밀번호를 입력해주세요"
+          }
           disabled={isLoading}
         />
+        {errors[isID ? "email" : "password"] && (
+          <span className="text-red-500 text-sm mt-1">
+            {errors[isID ? "email" : "password"]?.message}
+          </span>
+        )}
         {renderHelperLink()}
       </div>
 
