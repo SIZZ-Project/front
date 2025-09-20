@@ -28,7 +28,9 @@ export default function ProfileForm() {
         fetch("/api/profile")
             .then((res) => res.json())
             .then((data: ProfileForm) => setForm({...data}))
-            .catch((err) => console.log("프로필 로딩 실패",err));
+            .catch((err) => {
+              // 프로필 로딩 실패
+            });
     }, []);
 
     return(

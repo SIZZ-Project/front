@@ -99,7 +99,7 @@ export default function NewsCard({
         setIsLiked(likeResponse.liked);
         setHasFetched(true);
       } catch (error) {
-        console.error("상태 조회 실패:", error);
+        // 상태 조회 실패
         setHasFetched(true); // 에러가 발생해도 다시 시도하지 않음
       }
     };
@@ -131,7 +131,7 @@ export default function NewsCard({
         isBookmarked ? "북마크가 해제되었습니다." : "북마크에 추가되었습니다."
       );
     } catch (error) {
-      console.error("북마크 실패:", error);
+      // 북마크 실패
       toast.error("북마크 처리에 실패했습니다.");
     } finally {
       setIsLoading(false);
@@ -161,7 +161,7 @@ export default function NewsCard({
         isLiked ? "좋아요가 취소되었습니다." : "좋아요를 눌렀습니다."
       );
     } catch (error) {
-      console.error("좋아요 실패:", error);
+      // 좋아요 실패
       toast.error("좋아요 처리에 실패했습니다.");
     } finally {
       setIsLoading(false);

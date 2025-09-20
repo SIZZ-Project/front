@@ -59,17 +59,15 @@ export default function Form() {
       const authApi = AuthApiClient.getInstance();
       const response = await authApi.postAuthLogin(loginData);
 
-      console.log("로그인 폼에서 응답 확인:", response);
 
       // 로그인 성공 토스트 메시지
       toast.success("로그인에 성공했습니다!");
 
       // 로그인 성공 시 리다이렉트 처리
       const redirectUrl = searchParams.get("redirect") || "/";
-      console.log("리다이렉트 URL:", redirectUrl);
       router.push(redirectUrl);
     } catch (error: any) {
-      console.error("로그인 실패:", error);
+      // 로그인 실패 처리
       setError(
         error.response?.data?.message ||
           "로그인에 실패했습니다. 이메일과 비밀번호를 확인해주세요."

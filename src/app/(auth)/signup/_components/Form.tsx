@@ -53,7 +53,7 @@ export default function Form() {
         toast.error(response.message || "회원가입에 실패했습니다.");
       }
     } catch (error: any) {
-      console.error("회원가입 실패:", error);
+      // 회원가입 실패
       toast.error(
         error.response?.data?.message ||
           "회원가입에 실패했습니다. 다시 시도해주세요."

@@ -73,7 +73,6 @@ export default function NewsDetailModal({
         const commentsResponse = await commentApi.getNewsComments(
           news.articleId
         );
-        console.log("댓글 응답:", commentsResponse);
         setComments(Array.isArray(commentsResponse) ? commentsResponse : []);
 
         // 인증된 사용자만 북마크/좋아요 상태 조회
@@ -98,7 +97,7 @@ export default function NewsDetailModal({
 
         setHasFetched(true);
       } catch (error) {
-        console.error("데이터 조회 실패:", error);
+        // 데이터 조회 실패 시 에러 처리
         setHasFetched(true); // 에러가 발생해도 다시 시도하지 않음
       }
     };
@@ -124,7 +123,7 @@ export default function NewsDetailModal({
         isBookmarked ? "북마크가 해제되었습니다." : "북마크에 추가되었습니다."
       );
     } catch (error) {
-      console.error("북마크 실패:", error);
+      // 북마크 처리 실패
       toast.error("북마크 처리에 실패했습니다.");
     } finally {
       setIsLoading(false);
@@ -148,7 +147,7 @@ export default function NewsDetailModal({
         isLiked ? "좋아요가 취소되었습니다." : "좋아요를 눌렀습니다."
       );
     } catch (error) {
-      console.error("좋아요 실패:", error);
+      // 좋아요 처리 실패
       toast.error("좋아요 처리에 실패했습니다.");
     } finally {
       setIsLoading(false);
@@ -177,7 +176,7 @@ export default function NewsDetailModal({
       setNewComment("");
       toast.success("댓글이 작성되었습니다.");
     } catch (error) {
-      console.error("댓글 작성 실패:", error);
+      // 댓글 작성 실패
       toast.error("댓글 작성에 실패했습니다.");
     } finally {
       setIsLoading(false);
@@ -206,7 +205,7 @@ export default function NewsDetailModal({
       setComments(comments.filter((comment) => comment.id !== commentId));
       toast.success("댓글이 삭제되었습니다.");
     } catch (error) {
-      console.error("댓글 삭제 실패:", error);
+      // 댓글 삭제 실패
       toast.error("댓글 삭제에 실패했습니다.");
     } finally {
       setIsLoading(false);
