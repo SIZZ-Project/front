@@ -22,7 +22,7 @@ class NewsApiClient extends BaseApiClient {
 
   // TODO: Response 타입을 정의하고 사용하기
   // 현재는 임시로 빈 객체를 반환
-  public getNewsView = async (articleId: string): Promise<{}> => {
+  public getNewsView = async (articleId: string): Promise<unknown> => {
     const response = await this.axios.request({
       method: "GET",
       url: `/news/${articleId}/view`,

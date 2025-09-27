@@ -96,7 +96,7 @@ export default function NewsDetailModal({
         }
 
         setHasFetched(true);
-      } catch (error) {
+      } catch (_error) {
         // 데이터 조회 실패 시 에러 처리
         setHasFetched(true); // 에러가 발생해도 다시 시도하지 않음
       }
@@ -122,7 +122,7 @@ export default function NewsDetailModal({
       toast.success(
         isBookmarked ? "북마크가 해제되었습니다." : "북마크에 추가되었습니다."
       );
-    } catch (error) {
+    } catch (_error) {
       // 북마크 처리 실패
       toast.error("북마크 처리에 실패했습니다.");
     } finally {
@@ -146,7 +146,7 @@ export default function NewsDetailModal({
       toast.success(
         isLiked ? "좋아요가 취소되었습니다." : "좋아요를 눌렀습니다."
       );
-    } catch (error) {
+    } catch (_error) {
       // 좋아요 처리 실패
       toast.error("좋아요 처리에 실패했습니다.");
     } finally {
@@ -175,7 +175,7 @@ export default function NewsDetailModal({
       setComments([response, ...comments]);
       setNewComment("");
       toast.success("댓글이 작성되었습니다.");
-    } catch (error) {
+    } catch (_error) {
       // 댓글 작성 실패
       toast.error("댓글 작성에 실패했습니다.");
     } finally {
@@ -204,7 +204,7 @@ export default function NewsDetailModal({
 
       setComments(comments.filter((comment) => comment.id !== commentId));
       toast.success("댓글이 삭제되었습니다.");
-    } catch (error) {
+    } catch (_error) {
       // 댓글 삭제 실패
       toast.error("댓글 삭제에 실패했습니다.");
     } finally {
@@ -231,19 +231,6 @@ export default function NewsDetailModal({
       })
       .replace(/\./g, ".")
       .replace(/\s/g, "");
-  };
-
-  const getCategoryColor = (category: string) => {
-    switch (category) {
-      case "정치":
-        return "text-error";
-      case "중립":
-        return "text-warning";
-      case "진보":
-        return "text-success";
-      default:
-        return "text-coolGray-30";
-    }
   };
 
   return (

@@ -30,7 +30,7 @@ class BookMarksApiClient extends BaseApiClient {
     return response.data;
   };
 
-  public getUserBookmark = async (userId: string): Promise<{}> => {
+  public getUserBookmark = async (userId: string): Promise<unknown> => {
     const response = await this.axios.request({
       method: "GET",
       url: `/news/news/${userId}/bookmark`,
