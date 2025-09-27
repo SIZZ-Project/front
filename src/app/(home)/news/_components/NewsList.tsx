@@ -1,12 +1,6 @@
 import NewsApiClient from "@/api/NewsApiClient";
 import NewsCard from "../../components/home-bottom/NewsCard";
 
-const hotNews = [
-  { category: "정치" },
-  { category: "중립" },
-  { category: "진보" },
-];
-
 export default async function NewsList({ keyword }: { keyword: string }) {
   const news = await NewsApiClient.getInstance().getSearchNewsView(keyword, {
     page: 0,
@@ -29,7 +23,7 @@ export default async function NewsList({ keyword }: { keyword: string }) {
               }}
               className="w-full py-8 !bg-[#282829] text-coolGray-30 text-center text-2xl leading-[150%] rounded-xl"
             >
-              검색어 "{keyword}"에 관한 결과를 찾지 못했습니다.
+              검색어 &quot;{keyword}&quot;에 관한 결과를 찾지 못했습니다.
             </div>
           ) : (
             <>

@@ -1,10 +1,10 @@
 import React from "react";
 import NewsCard from "./NewsCard";
 import { twMerge } from "tailwind-merge";
-import { PageSearchNewsResponseDto } from "@/type";
+import { PageNewsResponseDto } from "@/type";
 
 interface NewsProps {
-  news: PageSearchNewsResponseDto;
+  news: PageNewsResponseDto;
 }
 
 export default function News({ news }: NewsProps) {

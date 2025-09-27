@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
@@ -57,8 +57,7 @@ export default function Form() {
       };
 
       const authApi = AuthApiClient.getInstance();
-      const response = await authApi.postAuthLogin(loginData);
-
+      await authApi.postAuthLogin(loginData);
 
       // 로그인 성공 토스트 메시지
       toast.success("로그인에 성공했습니다!");
@@ -66,10 +65,11 @@ export default function Form() {
       // 로그인 성공 시 리다이렉트 처리
       const redirectUrl = searchParams.get("redirect") || "/";
       router.push(redirectUrl);
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const err = error as { response?: { data?: { message?: string } } };
       // 로그인 실패 처리
       setError(
-        error.response?.data?.message ||
+        err.response?.data?.message ||
           "로그인에 실패했습니다. 이메일과 비밀번호를 확인해주세요."
       );
     } finally {

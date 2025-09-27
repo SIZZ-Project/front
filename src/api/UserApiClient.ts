@@ -1,7 +1,5 @@
 import {
   AuthRequest,
-  CommentRequest,
-  CommentResponse,
   LoginRequest,
   LoginResponse,
   SignupResponse,
@@ -26,7 +24,7 @@ class AuthApiClient extends BaseApiClient {
   // 사용자 정보 조회
   // TODO: Response 타입을 정의하고 사용하기
   // 현재는 임시로 빈 객체를 반환
-  public getMe = async (): Promise<{}> => {
+  public getMe = async (): Promise<unknown> => {
     const response = await this.axios.request({
       method: "GET",
       url: `/auth/me`,

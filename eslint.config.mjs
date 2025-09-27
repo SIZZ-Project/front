@@ -23,7 +23,6 @@ const eslintConfig = [
       ],
       "no-unused-vars": "off", // TypeScript 규칙을 사용하므로 기본 규칙은 비활성화
       "@typescript-eslint/no-empty-object-type": "error",
-      "@typescript-eslint/prefer-const": "error",
       "@typescript-eslint/no-explicit-any": "warn",
     },
   },

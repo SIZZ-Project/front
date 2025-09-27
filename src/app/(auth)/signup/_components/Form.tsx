@@ -52,10 +52,11 @@ export default function Form() {
       } else {
         toast.error(response.message || "회원가입에 실패했습니다.");
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
       // 회원가입 실패
+      const err = error as { response?: { data?: { message?: string } } };
       toast.error(
-        error.response?.data?.message ||
+        err.response?.data?.message ||
           "회원가입에 실패했습니다. 다시 시도해주세요."
       );
     } finally {

@@ -12,7 +12,6 @@
     "@radix-ui/react-select": "^2.2.5",
     "@radix-ui/react-switch": "^1.2.5",
     "@tanstack/react-query": "^5.80.6",
-    "add": "^2.0.6",
     "axios": "^1.9.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -25,8 +24,6 @@
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.60.0",
     "react-hot-toast": "^2.5.2",
-    "shadcn-ui": "^0.9.5",
-    "switch": "^0.0.0",
     "tailwind-merge": "^3.3.1",
     "tailwind-variants": "^1.0.0"
   },
