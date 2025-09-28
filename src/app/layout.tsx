@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "next-themes";
-import "./globals.css";
+import "../styles/globals.css";
 
 import ClientLayout from "./layout.client";
 import { Metadata } from "next";

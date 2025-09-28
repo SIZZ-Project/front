@@ -70,7 +70,7 @@ export default function ProfileForm() {
             value={form.gender}
             type="select"
             options={genderOptions}
-            onChange={(val) => setForm({ ...form, gender: val })}
+            onChange={(val) => setForm({ ...form, gender: val as Gender })}
           />
         </div>
       </div>
