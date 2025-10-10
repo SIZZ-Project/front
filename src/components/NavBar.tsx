@@ -4,23 +4,24 @@ import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { Switch } from "@/shared/ui/switch/switch";
+
 import { User } from "lucide-react";
 import SIZZ_logo from "@/../public/image/SiZZ_logo.svg";
 import HomeSearchBar from "@/components/Home-SearchBar";
 import "@/styles/globals.css";
 
 export default function NavBar() {
-  const { theme, setTheme } = useTheme();
+  const { setTheme } = useTheme();
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
-  }, []);
+    setTheme("dark");
+  }, [setTheme]);
 
   if (!isMounted) return null;
 
-  const isDark = theme === "dark";
+  const isDark = "dark";
   const textColor = isDark ? "text-white" : "text-gray-800";
   const navBg = isDark
     ? "bg-[rgba(49,49,49,0.8)]"
@@ -50,11 +51,14 @@ export default function NavBar() {
         <Link href="/analysis" className={`${textColor} hover:text-blue-400`}>
           내 성향분석
         </Link>
+        <Link href="/community" className={`${textColor} hover:text-blue-400`}>
+          커뮤니티
+        </Link>
         <Link href="/myProfile" className={`${textColor} hover:text-blue-400`}>
           <User />
         </Link>
 
-        <span
+        {/* <span
           className={`${isDark ? "text-gray-300" : "text-gray-500"} text-sm`}
         >
           {theme}
@@ -65,7 +69,7 @@ export default function NavBar() {
           onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
           className="bg-coolGray-80 data-[state=checked]:bg-primary-30"
           color="white"
-        />
+        /> */}
       </div>
     </nav>
   );
