@@ -8,14 +8,14 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@/components/Select";
 
 interface CustomSelectProps {
   onChange: (value: string) => void;
   value?: string;
 }
 
-export default function CustomSelect({ onChange, value }: CustomSelectProps) {
+export default function GenderSelect({ onChange, value }: CustomSelectProps) {
   return (
     <Select onValueChange={onChange} value={value}>
       <SelectTrigger

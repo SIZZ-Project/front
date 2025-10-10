@@ -146,7 +146,7 @@ export default function Form() {
           })}
           className="bg-transparent border border-coolGray-10 rounded-xl w-full h-[6.25rem] text-4xl pl-6"
           placeholder={
-            isID ? "이메일을 입력해주세요" : "비밀번호를 입력해주세요"
+            isID ? "이메일 또는 휴대전화" : "비밀번호를 입력해주세요"
           }
           disabled={isLoading}
         />
