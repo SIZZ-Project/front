@@ -60,6 +60,22 @@ class NewsApiClient extends BaseApiClient {
     });
     return response.data;
   };
+
+  public getInsights = async (
+    field: string
+  ): Promise<{
+    field: string;
+    content: string[];
+  }> => {
+    const response = await this.axios.request({
+      method: "GET",
+      url: `/insights`,
+      params: {
+        field,
+      },
+    });
+    return response.data;
+  };
 }
 
 export default NewsApiClient;

@@ -1,5 +1,5 @@
 import NewsApiClient from "@/api/NewsApiClient";
-import NewsCard from "../../components/home-bottom/NewsCard";
+import NewsCard from "../../_components/home-bottom/NewsCard";
 
 export default async function NewsList({ keyword }: { keyword: string }) {
   const news = await NewsApiClient.getInstance().getSearchNewsView(keyword, {

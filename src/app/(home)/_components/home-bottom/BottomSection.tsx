@@ -1,5 +1,5 @@
 import NewsApiClient from "@/api/NewsApiClient";
-import News from "@/app/(home)/components/home-bottom/News";
+import News from "@/app/(home)/_components/home-bottom/News";
 
 import Image from "next/image";
 
