@@ -1,13 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import InsightDetailModal from "./InsightDetailModal";
+import NewsApiClient from "@/api/NewsApiClient";
 
 export default function InsightBoxes({ insights }: { insights: string[] }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [insight, setInsight] = useState("");
-
+  const [insight, setInsight] = useState("정치");
+  const [news, setNews] = useState<string[]>([]);
   const handleOpen = (insight: string) => {
     setIsOpen(true);
     setInsight(insight);
@@ -17,6 +18,16 @@ export default function InsightBoxes({ insights }: { insights: string[] }) {
     setIsOpen(false);
     setInsight("");
   };
+  const getData = async (insight: string) => {
+    const data = await NewsApiClient.getInstance().getInsights(insight);
+    return data;
+  };
+
+  useEffect(() => {
+    getData(insight).then((data) => {
+      setNews(data.content);
+    });
+  }, [insight]);
 
   return (
     <>
@@ -44,6 +55,7 @@ export default function InsightBoxes({ insights }: { insights: string[] }) {
           isOpen={isOpen}
           onClose={handleClose}
           insight={insight}
+          news={news}
         />
       )}
     </>

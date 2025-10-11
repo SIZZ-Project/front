@@ -45,8 +45,8 @@ export default function NavBar() {
         <Link href="/" className={`${textColor} hover:text-blue-400`}>
           홈
         </Link>
-        <Link href="/pearNews" className={`${textColor} hover:text-blue-400`}>
-          공정 뉴스
+        <Link href="/search" className={`${textColor} hover:text-blue-400`}>
+          뉴스 검색
         </Link>
         <Link href="/analysis" className={`${textColor} hover:text-blue-400`}>
           내 성향분석

@@ -69,10 +69,7 @@ class NewsApiClient extends BaseApiClient {
   }> => {
     const response = await this.axios.request({
       method: "GET",
-      url: `/insights`,
-      params: {
-        field,
-      },
+      url: `/search/newsInsight/${field}`,
     });
     return response.data;
   };

@@ -4,10 +4,12 @@ export default function InsightDetailModal({
   isOpen,
   onClose,
   insight,
+  news,
 }: {
   isOpen: boolean;
   onClose: () => void;
   insight: string;
+  news: string[];
 }) {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -32,6 +34,11 @@ export default function InsightDetailModal({
 
         <div className="text-2xl font-bold text-coolGray-10  leading-[200%] h-[252px]">
           뉴스 리스트 요약 내용
+          <ul>
+            {news.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </div>
 
         <div className="w-full h-[1px] bg-[#a2a9b0]" />
