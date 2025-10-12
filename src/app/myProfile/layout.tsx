@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import MyPageMenu from "./components/myPageMenu";
+import MyPageMenu from "./components/MyPageMenu";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

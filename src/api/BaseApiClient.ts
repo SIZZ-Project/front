@@ -35,6 +35,12 @@ class BaseApiClient {
         return response;
       },
       async (error) => {
+        // error.response가 없는 경우 (네트워크 오류 등) 처리
+        if (!error.response) {
+          console.error("Network Error or No Response:", error.message);
+          return Promise.reject(error);
+        }
+
         const {
           status,
           statusText,
