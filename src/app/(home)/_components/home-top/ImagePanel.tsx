@@ -1,6 +1,4 @@
 import Image from "next/image";
-import S_image from "@/../public/image/S_image.svg";
-import L_image from "@/../public/image/L_image.svg";
 
 export default function ImagePanel() {
   return (
@@ -10,7 +8,7 @@ export default function ImagePanel() {
 
         <div className="absolute min-w-[1301px] object-contain  top-0 left-1/2 -translate-x-1/2">
           <Image
-            src={S_image}
+            src={"/image/S_image.svg"}
             alt="S 사진"
             width={1301}
             height={1012}
@@ -22,7 +20,7 @@ export default function ImagePanel() {
           style={{ transform: "translateX(50%) translateX(240px)" }}
         >
           <Image
-            src={L_image}
+            src={"/image/I_image.svg"}
             alt="L 사진"
             width={1301}
             height={1012}

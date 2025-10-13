@@ -1,11 +1,10 @@
 import Image from "next/image";
-import SIZZ_logo from "@/../public/image/SiZZ_logo.svg";
 
 export default function LogoTitle() {
   return (
     <div className="flex flex-col gap-2 w-[31.6875rem] mt-[6.25rem]">
       <div className="flex flex-row items-center gap-3 sm:gap-4 md:gap-5">
-        <Image src={SIZZ_logo} alt="ICON" width={59} height={59} />
+        <Image src={"/image/SiZZ_logo.svg"} alt="ICON" width={59} height={59} />
         <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white">
           SIZZ
         </span>

@@ -4,11 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-
 import { User } from "lucide-react";
-import SIZZ_logo from "@/../public/image/SiZZ_logo.svg";
 import HomeSearchBar from "@/components/Home-SearchBar";
-import "@/styles/globals.css";
 
 export default function NavBar() {
   const { setTheme } = useTheme();
@@ -33,7 +30,12 @@ export default function NavBar() {
     >
       <div className="flex items-center gap-6">
         <Link href="/" className={`flex items-center gap-2 ${textColor}`}>
-          <Image src={SIZZ_logo} alt="SIZZ Logo" width={32} height={32} />
+          <Image
+            src={"/image/SiZZ_logo.svg"}
+            alt="SIZZ Logo"
+            width={32}
+            height={32}
+          />
           <span className="text-xl font-semibold">SIZZ</span>
         </Link>
         <div className="pl-2">

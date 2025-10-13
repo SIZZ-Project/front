@@ -1,4 +1,3 @@
-import defaultProfileImage from "@/../public/image/defaultImageProfile.svg";
 import { genderOptions } from "@/constants/options";
 import ProfileInput from "@/components/myProfile/profile/ProfileInput";
 import Image from "next/image";
@@ -34,7 +33,12 @@ export default function ProfileForm() {
 
   return (
     <div className="flex flex-col gap-3 w-150">
-      <Image src={defaultProfileImage} alt="profile" width={80} height={80} />
+      <Image
+        src={"/image/defaultImageProfile.svg"}
+        alt="profile"
+        width={80}
+        height={80}
+      />
       <div className="flex flex-col gap-3">
         <div className="flex flex-row w-full">
           <h3 className="font-bold">계정 정보</h3>
