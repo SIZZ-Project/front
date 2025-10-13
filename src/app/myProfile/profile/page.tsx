@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import ProfileForm from "./ProfileForm";
+import ProfileForm from "../_components/ProfileForm";
 
 export default function MyProfile() {
   return (
