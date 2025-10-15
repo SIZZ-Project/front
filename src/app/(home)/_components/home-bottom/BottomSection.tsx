@@ -7,8 +7,6 @@ export default async function BottomSection() {
   const news = await NewsApiClient.getInstance().getNewsAll();
   const hotNews = await NewsApiClient.getInstance().getNewsHot();
 
-  console.log(hotNews);
-  console.log(news);
   return (
     <div className="pt-[50px] relative px-[136px] overflow-y-hidden">
       <News news={news} hotNews={hotNews} />
