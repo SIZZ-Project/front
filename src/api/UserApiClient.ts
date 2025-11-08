@@ -75,8 +75,8 @@ class AuthApiClient extends BaseApiClient {
     const loginData = response.data as LoginResponse;
 
     // 디버깅: API 응답 확인
-    console.log("로그인 API 응답:", loginData);
-    console.log("토큰 데이터:", loginData.data);
+    // console.log("로그인 API 응답:", loginData);
+    // console.log("토큰 데이터:", loginData.data);
 
     // 토큰이 존재하는지 확인
     if (!loginData.data) {

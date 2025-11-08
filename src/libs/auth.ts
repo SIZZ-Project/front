@@ -12,8 +12,8 @@ interface TokenPayload {
 }
 
 export function setTokens(tokens: Tokens) {
-  console.log("토큰 저장 시도:", tokens);
-  console.log("액세스 토큰:", tokens.accessToken);
+  // console.log("토큰 저장 시도:", tokens);
+  // console.log("액세스 토큰:", tokens.accessToken);
 
   if (!tokens.accessToken) {
     console.error("액세스 토큰이 없습니다!");
@@ -21,11 +21,11 @@ export function setTokens(tokens: Tokens) {
   }
 
   Cookies.set("ACCESS_TOKEN", tokens.accessToken);
-  console.log("ACCESS_TOKEN 쿠키 저장 완료");
+  // console.log("ACCESS_TOKEN 쿠키 저장 완료");
 
   if (tokens.refreshToken) {
     Cookies.set("REFRESH_TOKEN", tokens.refreshToken);
-    console.log("REFRESH_TOKEN 쿠키 저장 완료");
+    // console.log("REFRESH_TOKEN 쿠키 저장 완료");
   }
 }
 export function clearTokens() {
@@ -35,7 +35,7 @@ export function clearTokens() {
 
 export function getToken(): string | null {
   const token = Cookies.get("ACCESS_TOKEN");
-  console.log("쿠키에서 토큰 읽기:", token);
+  // console.log("쿠키에서 토큰 읽기:", token);
   return token || null;
 }
 

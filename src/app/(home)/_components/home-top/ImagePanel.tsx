@@ -20,7 +20,7 @@ export default function ImagePanel() {
           style={{ transform: "translateX(50%) translateX(240px)" }}
         >
           <Image
-            src={"/image/I_image.svg"}
+            src={"/image/L_image.svg"}
             alt="L 사진"
             width={1301}
             height={1012}

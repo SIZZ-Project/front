@@ -26,19 +26,11 @@ export function middleware(request: NextRequest) {
 
   const isAuthenticated = token ? isTokenValid(token) : false;
 
-  console.log(
-    "Middleware - Path:",
-    pathname,
-    "Authenticated:",
-    isAuthenticated
-  );
-
   // 인증된 사용자가 로그인/회원가입 페이지에 접근하는 경우
   if (
     isAuthenticated &&
     authRoutes.some((route) => pathname.startsWith(route))
   ) {
-    console.log("Redirecting authenticated user to home");
     return NextResponse.redirect(new URL("/", request.url));
   }
 
@@ -47,7 +39,6 @@ export function middleware(request: NextRequest) {
     !isAuthenticated &&
     protectedRoutes.some((route) => pathname.startsWith(route))
   ) {
-    console.log("Redirecting unauthenticated user to signin");
     const redirectUrl = new URL("/signin", request.url);
     redirectUrl.searchParams.set("redirect", pathname);
     return NextResponse.redirect(redirectUrl);
