@@ -21,7 +21,7 @@ export function setTokens(tokens: Tokens) {
   }
 
   Cookies.set("ACCESS_TOKEN", tokens.accessToken);
-  // console.log("ACCESS_TOKEN 쿠키 저장 완료");
+  console.log("ACCESS_TOKEN 쿠키 저장 완료");
 
   if (tokens.refreshToken) {
     Cookies.set("REFRESH_TOKEN", tokens.refreshToken);
