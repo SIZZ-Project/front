@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function SearchBox() {
   return (
-    <>
+    <div className="flex items-center gap-6">
       <div className="w-[570px] h-[60px] rounded-2xl px-[27px] border border-coolGray-30 flex items-center">
         <input
           type="text"
@@ -28,9 +28,9 @@ export default function SearchBox() {
           />
         </button>
       </div>
-      <button className="h-[53px] px-[33px] py-3 bg-coolGray-80 text-2xl rounded-[5px]">
+      <button className="h-[53px] w-[150px] text-xl py-3 bg-coolGray-80 rounded-[5px]">
         글 작성하기
       </button>
-    </>
+    </div>
   );
 }

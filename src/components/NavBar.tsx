@@ -56,7 +56,10 @@ export default function NavBar() {
         <Link href="/community" className={`${textColor} hover:text-blue-400`}>
           커뮤니티
         </Link>
-        <Link href="/myProfile" className={`${textColor} hover:text-blue-400`}>
+        <Link
+          href="/myProfile/profile"
+          className={`${textColor} hover:text-blue-400`}
+        >
           <User />
         </Link>
 

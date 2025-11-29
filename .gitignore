@@ -1,5 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+#  문항 번호에 따른 라우팅을 파이썬에서 하는데 번호에 따른 직접 요청하는게 낫지 않나
+#  각각의 역할을 한다.
+
 # dependencies
 /node_modules
 /.pnp

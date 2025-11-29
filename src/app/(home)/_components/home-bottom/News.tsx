@@ -48,6 +48,13 @@ export default function News({ news, hotNews }: NewsProps) {
               }}
             />
           ))}
+          {news.content.length === 0 && (
+            <div className="w-full h-[470px] flex items-center justify-center rounded-xl">
+              <p className="text-coolGray-30 text-2xl leading-[150%]">
+                뉴스가 없습니다.
+              </p>
+            </div>
+          )}
         </div>
       </div>
 
